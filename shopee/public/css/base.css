@@ -1,0 +1,93 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --brand-primary-color: #ee4d2d;
+    --brand-primary-light-color: rgba(255,87,34,0.1);
+
+    --header-height: 120px;
+    --navbar-height: 26.8px;
+    --header-with-search: calc(var(--header-height) - var(--navbar-height))
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%; 
+    line-height: 1.6rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+/* Responsive */
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.grid__column-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: calc(100% / 12 * 2);
+}
+
+.grid__column-4 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: calc(100% / 12 * 4);
+}
+
+.grid__column-6 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: calc(100% / 12 * 6);
+}
+
+.grid__column-8 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: calc(100% / 12 * 8);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.price {
+    color: rgb(238, 78, 46);
+    font-size: 18px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.currency-unit {
+    text-transform: lowercase;
+    text-decoration: underline;
+    padding: none;
+    vertical-align: text-top;
+    font-size: 14px;
+}
