@@ -1,0 +1,47 @@
+.simple__form{
+    width: 40%;
+    margin: 30px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px 20px 20px;
+    background-color: #EDEDED;
+}
+
+.simple__form form h1{
+    color: #554994;
+    
+}
+
+.simple__form form input{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.simple__form form input::placeholder{
+    opacity: 0.3;
+}
+
+.simple__form form button{
+    width: 100%;
+    display: block;
+    background-color: #554994;
+    border: 1px solid #554994;
+    border-radius: 5px;
+    color: #EDEDED;
+    transition: all .5s;
+}
+
+.simple__form form button:hover{
+    color: #554994;
+    background-color: white;
+}
+
+.simple__form .form__result{
+    margin: 5px auto;
+    width: 90%;
+    text-align: center;
+}
+
+

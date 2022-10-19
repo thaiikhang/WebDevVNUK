@@ -35,6 +35,4 @@ Route::group(['prefix'=>'MyGroup'], function() {
 
 Route::get('testarray', [ArrayController::class, 'getIndex']);
 
-Route::get('simpleform', [SimpleFormController::class, 'simpleform']);
-Route::post('simpleform', [SimpleFormController::class, 'store']);
 
