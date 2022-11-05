@@ -20,10 +20,11 @@ class PageController extends Controller
     }
 
     public function getLoaiSp($type){
+        $type_name = Typeproduct::where('id',$type)->first();
         $type_product = Typeproduct::all();
         $sp_theoloai = Product::where('id_type',$type)->get();
         $sp_khac = Product::where('id_type','<>',$type)->paginate(3);
-        return view('page.loai_sanpham', compact('sp_theoloai','type_product','sp_khac'));
+        return view('page.loai_sanpham', compact('sp_theoloai','type_product','sp_khac','type_name'));
     }
 
     public function getDetail(){

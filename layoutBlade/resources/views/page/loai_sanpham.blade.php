@@ -3,11 +3,11 @@
 <div class="inner-header">
     <div class="container">
         <div class="pull-left">
-            <h6 class="inner-title">Sản phẩm</h6>
+            <h6 class="inner-title">Sản phẩm {{$type_name->name}}</h6>
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb font-large">
-                <a href="index.html">Home</a> / <span>Sản phẩm</span>
+                <a href="index.html">Home</a> / <span>Sản phẩm </span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -70,25 +70,25 @@
                     <div class="beta-products-list">
                         <h4>Top Products</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">Tim thay {{count($sp_khac)}}</p>
+                            <p class="pull-left">Tim thay {{count($sp_khac)}} san pham</p>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
-                            @foreach($sp_khac as $sp_khac)
+                        @foreach($sp_khac as $sp_khac)
                             <div class="col-sm-4">
                                 <div class="single-item">
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product{{$sp_khac->image}}" alt=""></a>
+                                        <a href="product.html"><img src="/source/image/product/{{$sp_khac->image}}" alt=""></a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">{{$sp_khac -> name}}</p>
+                                        <p class="single-item-title">{{$sp_khac->name}}</p>
                                         <p class="single-item-price">
-                                            @if($sp_khac->promotion_price)
-                                            <span class="flash-sale">{{number_format($sp_khac->unit_price)}}</span>
-                                            @else
-                                            <span class="flash-del">{{number_format($sp_khac->unit_price)}}dong</span>
-                                            <span class="flash-del">{{number_format($sp_khac->promotion_price)}}dong</span>
-                                            @endif
+                                        @if($sp_khac->promotion_price==0)
+                                            <span class="flash-sale">{{number_format($sp_khac->unit_price)}} dong</span>
+                                        @else
+                                            <span class="flash-del">{{number_format($sp_khac->unit_price)}} dong</span>
+                                            <span class="flash-sale">{{number_format($sp_khac->promotion_price)}} dong</span>
+                                        @endif
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -98,9 +98,10 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                         </div>
                         <div class="space40">&nbsp;</div>
+
                     </div> <!-- .beta-products-list -->
                 </div>
             </div> <!-- end section with sidebar and main content -->
