@@ -21,7 +21,7 @@
                 <div class="col-sm-3">
                     <ul class="aside-menu">
                         @foreach($type_product as $l)
-                            <li><a href="/type/{{$l->id}}">{{$l->name}}</a></li>
+                        <li><a href="/type/{{$l->id}}">{{$l->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -29,20 +29,29 @@
                     <div class="beta-products-list">
                         <h4>New Products</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">438 styles found</p>
+                            <p class="pull-left">Tim thay {{count($sp_theoloai)}}</p>
                             <div class="clearfix"></div>
                         </div>
 
                         <div class="row">
+                            @foreach ($sp_theoloai as $sp)
                             <div class="col-sm-4">
                                 <div class="single-item">
+                                    @if($sp->promotion_price!=0)
+                                        <div class="ribbon-wrapper"><div class="ribbon sale">i love u</div></div>
+                                    @endif
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                        <a href="product.html"><img src="/source/image/product/{{$sp->image}}" alt=""></a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$sp->name}}</p>
                                         <p class="single-item-price">
-                                            <span>$34.55</span>
+                                            @if($sp->promotion_price==0)
+                                                <span class="flash-sale">{{number_format($sp->unit_price)}} dong</span>
+                                            @else
+                                                <span class="flash-del">{{number_format($sp->unit_price)}} dong</span>
+                                                <span class="flash-sale">{{number_format($sp->promotion_price)}} dong</span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -52,42 +61,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div> <!-- .beta-products-list -->
 
@@ -96,19 +70,25 @@
                     <div class="beta-products-list">
                         <h4>Top Products</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">438 styles found</p>
+                            <p class="pull-left">Tim thay {{count($sp_khac)}}</p>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
+                            @foreach($sp_khac as $sp_khac)
                             <div class="col-sm-4">
                                 <div class="single-item">
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                        <a href="product.html"><img src="source/image/product{{$sp_khac->image}}" alt=""></a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$sp_khac -> name}}</p>
                                         <p class="single-item-price">
-                                            <span>$34.55</span>
+                                            @if($sp_khac->promotion_price)
+                                            <span class="flash-sale">{{number_format($sp_khac->unit_price)}}</span>
+                                            @else
+                                            <span class="flash-del">{{number_format($sp_khac->unit_price)}}dong</span>
+                                            <span class="flash-del">{{number_format($sp_khac->promotion_price)}}dong</span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -118,45 +98,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="space40">&nbsp;</div>
-
                     </div> <!-- .beta-products-list -->
                 </div>
             </div> <!-- end section with sidebar and main content -->
