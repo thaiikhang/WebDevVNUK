@@ -30,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
             $loai_sp = Typeproduct::all();
             $view->with('loai_sp', $loai_sp);
         });
+
+        
         view()->composer('page.Typeproduct', function ($view) {
             $product_new = Product::where('new',1)->orderBy('id','DESC')->skip(1)->take(8)->get();
             $view-> with('product_new', $product_new);

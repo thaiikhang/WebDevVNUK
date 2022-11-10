@@ -34,9 +34,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="beta-products-list">
-                        <h4>New Products</h4>
+                        <h4>Sản phẩm mới</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">Tim thay {{count($new_product)}} san pham</p>
+                            <p class="pull-left">Tìm thấy {{count($new_product)}} sản phẩm</p>
                             <div class="clearfix"></div>
                         </div>
 
@@ -44,14 +44,21 @@
                         @foreach($new_product as $new)
                             <div class="col-sm-3">
                                 <div class="single-item">
+                                    @if($new->promotion_price!=0)
+                                        <div class="ribbon-wrapper"><div class="ribbon sale">sale</div></div>
+                                    @endif
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product/{{$new->image}}" alt=""></a>
+                                        <a href="product.html"><img src="source/image/product/{{$new->image}}" alt="" height="250px"></a>
                                     </div>
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$new->name}}</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">{{$new->unit_price}}dong</span>
-                                            <span class="flash-sale">{{$new->promotion_price}}dong</span>
+                                        <p class="single-item-price" style="font-size: 18px;">
+                                            @if($new->promotion_price==0)
+                                                <span class="flash-sale">{{number_format($new->unit_price)}} dong</span>
+                                            @else
+                                                <span class="flash-del">{{number_format($new->unit_price)}} dong</span>
+                                                <span class="flash-sale">{{number_format($new->promotion_price)}} dong</span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -69,7 +76,7 @@
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
-                        <h4>Top Products</h4>
+                        <h4>Sản phẩm khuyến mãi</h4>
                         <div class="beta-products-details">
                             <p class="pull-left"> {{count($sanpham_khuyenmai)}} san pham</p>
                             <div class="clearfix"></div>
@@ -79,13 +86,13 @@
                             <div class="col-sm-3">
                                 <div class="single-item">
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product/{{$spkm->image}}" alt=""></a>
+                                        <a href="product.html"><img src="source/image/product/{{$spkm->image}}" alt="" height="250px"></a>
                                     </div>
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$spkm->name}}</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">{{number_format($spkm->unit_price)}}dong</span>
-                                            <span class="flash-sale">{{number_format($spkm->promotion_price)}}dong</span>
+                                        <p class="single-item-price" style="font-size: 18px;">
+                                            <span class="flash-del">{{number_format($spkm->unit_price)}} dong</span>
+                                            <span class="flash-sale">{{number_format($spkm->promotion_price)}} dong</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">

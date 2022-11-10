@@ -7,7 +7,7 @@
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb font-large">
-                <a href="index.html">Home</a> / <span>Sản phẩm </span>
+                <a href="/trangchu">Home</a> / <span>Sản phẩm </span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -21,7 +21,7 @@
                 <div class="col-sm-3">
                     <ul class="aside-menu">
                         @foreach($type_product as $l)
-                        <li><a href="/type/{{$l->id}}">{{$l->name}}</a></li>
+                            <li><a href="/type/{{$l->id}}">{{$l->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -38,14 +38,14 @@
                             <div class="col-sm-4">
                                 <div class="single-item">
                                     @if($sp->promotion_price!=0)
-                                        <div class="ribbon-wrapper"><div class="ribbon sale">i love u</div></div>
+                                        <div class="ribbon-wrapper"><div class="ribbon sale">sale</div></div>
                                     @endif
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="/source/image/product/{{$sp->image}}" alt=""></a>
+                                        <a href="product.html"><img src="/source/image/product/{{$sp->image}}" alt="" height="250px"></a>
                                     </div>
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$sp->name}}</p>
-                                        <p class="single-item-price">
+                                        <p class="single-item-price" style="font-size: 18px;">
                                             @if($sp->promotion_price==0)
                                                 <span class="flash-sale">{{number_format($sp->unit_price)}} dong</span>
                                             @else
@@ -68,26 +68,26 @@
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
-                        <h4>Top Products</h4>
+                        <h4>Sản Phẩm Khác</h4>
                         <div class="beta-products-details">
                             <p class="pull-left">Tim thay {{count($sp_khac)}} san pham</p>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
-                        @foreach($sp_khac as $sp_khac)
+                        @foreach($sp_khac as $sp_k)
                             <div class="col-sm-4">
                                 <div class="single-item">
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="/source/image/product/{{$sp_khac->image}}" alt=""></a>
+                                        <a href="product.html"><img src="/source/image/product/{{$sp_k->image}}" alt=""></a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">{{$sp_khac->name}}</p>
+                                        <p class="single-item-title">{{$sp_k->name}}</p>
                                         <p class="single-item-price">
-                                        @if($sp_khac->promotion_price==0)
-                                            <span class="flash-sale">{{number_format($sp_khac->unit_price)}} dong</span>
+                                        @if($sp_k->promotion_price==0)
+                                            <span class="flash-sale">{{number_format($sp_k->unit_price)}} dong</span>
                                         @else
-                                            <span class="flash-del">{{number_format($sp_khac->unit_price)}} dong</span>
-                                            <span class="flash-sale">{{number_format($sp_khac->promotion_price)}} dong</span>
+                                            <span class="flash-del">{{number_format($sp_k->unit_price)}} dong</span>
+                                            <span class="flash-sale">{{number_format($sp_k->promotion_price)}} dong</span>
                                         @endif
                                         </p>
                                     </div>
@@ -100,6 +100,7 @@
                             </div>
                         @endforeach
                         </div>
+                        <div class="row">{{$sp_khac->links()}}</div>
                         <div class="space40">&nbsp;</div>
 
                     </div> <!-- .beta-products-list -->
@@ -110,3 +111,4 @@
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->
+@endsection
